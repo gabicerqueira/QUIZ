@@ -1,0 +1,61 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+img{
+    width: 100%;
+}
+
+@font-face {
+    font-family: 'LeagueRegular';
+    src: url(fonts/LeagueSpartan-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'UnbRegular';
+    src: url(fonts/Unbounded-Regular.ttf);
+}
+
+.cabecalho{
+    background-color: white;
+    border-bottom: 2px solid rgb(161, 161, 161);
+
+}
+
+.container{
+    margin: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cabecalho img{
+    width: 200px;
+}
+
+.nossosQuizes{
+    font: 300 18px 'UnbRegular', sans-serif;
+}
+
+#main{
+    background: linear-gradient(to right, white 10%,rgb(207, 207, 207) 90%);
+    background-size: 300% 300%;
+    animation: colors 30s ease infinite;
+}
+
+@keyframes colors {
+    0%{
+        background-position: 0% 50%;
+    }
+
+    50%{
+        background-position: 50% 100%;
+    }
+
+    100%{
+        background-position: 0% 50%;
+    }
+}

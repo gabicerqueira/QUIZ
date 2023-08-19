@@ -9,14 +9,25 @@ img{
     width: 100%;
 }
 
-@font-face {
-    font-family: 'LeagueRegular';
-    src: url(fonts/LeagueSpartan-Regular.ttf);
-}
 
 @font-face {
     font-family: 'UnbRegular';
     src: url(fonts/Unbounded-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'UnbBold';
+    src: url(fonts/Unbounded-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'OpenBold';
+    src: url(fonts/OpenSans-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'OpenRegular';
+    src: url(fonts/OpenSans-Regular.ttf);
 }
 
 .cabecalho{
@@ -43,7 +54,7 @@ img{
 #main{
     background: linear-gradient(to right, white 10%,rgb(207, 207, 207) 90%);
     background-size: 300% 300%;
-    animation: colors 30s ease infinite;
+    animation: colors 20s ease infinite;
 }
 
 @keyframes colors {
@@ -58,4 +69,31 @@ img{
     100%{
         background-position: 0% 50%;
     }
+}
+
+h1{
+    font:32px 'UnbRegular', sans-serif;
+    padding: 200px 0 0 200px;
+}
+
+
+.texto{
+    font:22px 'OpenRegular', sans-serif;
+    letter-spacing: 1.5px;
+    padding: 20px 750px 0 150px;
+    text-align: center;
+}
+
+.conteudo{
+    padding-bottom: 200px;
+}
+
+button{
+    border-radius: 5px;
+    padding: 10px 25px;
+    background-color: blue;
+    font:18px 'OpenRegular', sans-serif;
+    color: white;
+    margin: 30px 0 0 345px;
+    cursor: pointer;
 }

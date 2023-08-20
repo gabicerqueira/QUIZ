@@ -52,7 +52,7 @@ img{
 }
 
 #main{
-    background: linear-gradient(to right, white 10%,rgb(194, 194, 194) 90%);
+    background: linear-gradient(to right, white 20%,rgb(194, 194, 194) 80%);
     background-size: 300% 300%;
     animation: colors 20s ease infinite;
 }

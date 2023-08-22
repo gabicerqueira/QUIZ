@@ -65,6 +65,33 @@ function iniciarQuiz(){
     mostrarPergunta();
 }
 
+const iconClass = {
+    "Sócrates": "fa-solid fa-circle",
+    "Descartes": "fa-solid fa-square",
+    "Aristóteles": "fa-solid fa-diamond",
+    "Platão": "fa-solid fa-star",
+
+    "X = 2": "fa-solid fa-circle",
+    "X = 10": "fa-solid fa-square",
+    "X = 4": "fa-solid fa-diamond",
+    "X = 5": "fa-solid fa-star",
+
+    "Inglaterra": "fa-solid fa-circle",
+    "França": "fa-solid fa-square",
+    "Brasil": "fa-solid fa-diamond",
+    "Estados Unidos": "fa-solid fa-star",
+
+    "Célula das plantas": "fa-solid fa-circle",
+    "Produto de limpeza": "fa-solid fa-square",
+    "Nome científico do cloro": "fa-solid fa-diamond",
+    "Pigmento verde das plantas": "fa-solid fa-star",
+
+    "Renato": "fa-solid fa-circle",
+    "Fez": "fa-solid fa-square",
+    "Fez um gol": "fa-solid fa-diamond",
+    "Um gol": "fa-solid fa-star",
+};
+
 function mostrarPergunta(){
     resetarEstado();
 
@@ -79,7 +106,8 @@ function mostrarPergunta(){
 
     perguntaAtual.resposta.forEach(resposta => { //criar botao de proximo ao responder
         const button = document.createElement("button");
-        button.innerHTML = resposta.text;
+        // button.innerHTML = resposta.text;
+        button.innerHTML = `<i class="${iconClass[resposta.text]}" style="color: #002a61;"></i> ${resposta.text}`;
         button.classList.add("btn");
         botoesResposta.appendChild(button);
 

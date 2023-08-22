@@ -137,7 +137,7 @@ h1{
 }
 
 .btn{
-    /* background: #fff; */
+    background: #fff;
     color: #222;
     font: 500 20px 'OpenRegular', sans-serif;
     width: 100%;
@@ -185,3 +185,5 @@ h1{
     height: auto;
     margin-top: 10px;
 }
+
+

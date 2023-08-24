@@ -186,4 +186,13 @@ h1{
     margin-top: 10px;
 }
 
+.final{
+    background-color: white;
+    width: 100%;
+}
 
+#pontuacao{
+    font: 500 22px 'UnbRegular', sans-serif;
+    text-align: center;
+    padding: 20px 0;
+}

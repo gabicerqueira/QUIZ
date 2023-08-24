@@ -92,6 +92,33 @@ const iconClass = {
     "Um gol": "fa-solid fa-star",
 };
 
+// const styleClass = {
+//     "Sócrates": "red",
+//     "Descartes": "blue",
+//     "Aristóteles": "green",
+//     "Platão": "#ff00a6",
+
+//     "X = 2": "red",
+//     "X = 10": "blue",
+//     "X = 4": "green",
+//     "X = 5": "#ff00a6",
+
+//     "Inglaterra": "red",
+//     "França": "blue",
+//     "Brasil": "green",
+//     "Estados Unidos": "#ff00a6",
+
+//     "Célula das plantas": "red",
+//     "Produto de limpeza": "blue",
+//     "Nome científico do cloro": "green",
+//     "Pigmento verde das plantas": "f#ff00a6",
+
+//     "Renato": "red",
+//     "Fez": "blue",
+//     "Fez um gol": "green",
+//     "Um gol": "#ff00a6",
+// };
+
 function mostrarPergunta(){
     resetarEstado();
 
@@ -107,7 +134,7 @@ function mostrarPergunta(){
     perguntaAtual.resposta.forEach(resposta => { //criar botao de proximo ao responder
         const button = document.createElement("button");
         // button.innerHTML = resposta.text;
-        button.innerHTML = `<i class="${iconClass[resposta.text]}" style="color: #002a61;"></i> ${resposta.text}`;
+        button.innerHTML = `<i class="${iconClass[resposta.text]}" style="color: #004aab"></i> ${resposta.text}`;
         button.classList.add("btn");
         botoesResposta.appendChild(button);
 
@@ -125,23 +152,45 @@ function resetarEstado(){
     }
 }
 
+// function selectAnswer(e){
+//     const btnSelecionado = e.target;
+//     const correto = btnSelecionado.dataset.correct === "true";
+//     if(correto){
+//         btnSelecionado.classList.add("correto"); //se tiver certo fica verde
+//         pontuacao++;
+//     }else{
+//         btnSelecionado.classList.add("incorreto"); //se não fica vermelho
+//     }
+//     Array.from(botoesResposta.children).forEach(button => {
+//         if(button.dataset.correct === "true"){
+//             button.classList.add("correto"); //verde
+//         }
+//         button.disabled = true; //cursor fica bloqueado
+//     });
+//     proximoBotao.style.display = "block"; //aparece o botao de next
+// }
+
 function selectAnswer(e){
     const btnSelecionado = e.target;
     const correto = btnSelecionado.dataset.correct === "true";
     if(correto){
-        btnSelecionado.classList.add("correto"); //se tiver certo fica verde
-        pontuacao++;
-    }else{
-        btnSelecionado.classList.add("incorreto"); //se não fica vermelho
+        btnSelecionado.classList.add("correto");//se tiver certo fica verde
+        pontuacao += 10;
+
+        const pontuacaoElement = document.getElementById("pontuacao"); //pega o p 
+        pontuacaoElement.textContent = `Pontuação: ${pontuacao}`; //muda adicionando a cada resposta correta
+    } else {
+        btnSelecionado.classList.add("incorreto"); //não adiciona a pontuação e fica vermelho
     }
     Array.from(botoesResposta.children).forEach(button => {
         if(button.dataset.correct === "true"){
             button.classList.add("correto"); //verde
         }
-        button.disabled = true; //cursor fica bloqueado
+        button.disabled = true;
     });
     proximoBotao.style.display = "block"; //aparece o botao de next
 }
+
 
 function mostrarPontuacao(){ //final
     resetarEstado();

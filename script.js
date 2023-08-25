@@ -92,31 +92,58 @@ const iconClass = {
     "Um gol": "fa-solid fa-star",
 };
 
-const styleClass = {
-    "Sócrates": "red",
-    "Descartes": "blue",
-    "Aristóteles": "green",
-    "Platão": "#ff00a6",
+// const styleClass = {
+//     "Sócrates": "#333333",
+//     "Descartes": "#333333",
+//     "Aristóteles": "#333333",
+//     "Platão": "#333333",
 
-    "X = 2": "red",
-    "X = 10": "blue",
+//     "X = 2": "red",
+//     "X = 10": "blue",
+//     "X = 4": "green",
+//     "X = 5": "#ff00a6",
+
+//     "Inglaterra": "red",
+//     "França": "blue",
+//     "Brasil": "green",
+//     "Estados Unidos": "#ff00a6",
+
+//     "Célula das plantas": "red",
+//     "Produto de limpeza": "blue",
+//     "Nome científico do cloro": "green",
+//     "Pigmento verde das plantas": "#ff00a6",
+
+//     "Renato": "red",
+//     "Fez": "blue",
+//     "Fez um gol": "green",
+//     "Um gol": "#ff00a6",
+// };
+
+const colorClass = {
+    "Sócrates": "#ff4141",
+    "Descartes": "#7d7dff",
+    "Aristóteles": "#56ff56",
+    "Platão": "#ddda32",
+
+    "X = 2": "#ff4141",
+    "X = 10": "#7d7dff",
     "X = 4": "green",
-    "X = 5": "#ff00a6",
+    "X = 5": "yellow",
 
-    "Inglaterra": "red",
-    "França": "blue",
+    "Inglaterra": "#ff4141",
+    "França": "#7d7dff",
     "Brasil": "green",
-    "Estados Unidos": "#ff00a6",
+    "Estados Unidos": "yellow",
 
-    "Célula das plantas": "red",
-    "Produto de limpeza": "blue",
+    "Célula das plantas": "#ff4141",
+    "Produto de limpeza": "#7d7dff",
     "Nome científico do cloro": "green",
-    "Pigmento verde das plantas": "f#ff00a6",
+    "Pigmento verde das plantas": "yellow",
 
-    "Renato": "red",
-    "Fez": "blue",
+    "Renato": "#ff4141",
+    "Fez": "#7d7dff",
     "Fez um gol": "green",
-    "Um gol": "#ff00a6",
+    "Um gol": "yellow",
 };
 
 
@@ -136,7 +163,7 @@ function mostrarPergunta(){
     perguntaAtual.resposta.forEach(resposta => { //criar botao de proximo ao responder
         const button = document.createElement("button");
         // button.innerHTML = resposta.text;
-        button.innerHTML = `<i class="${iconClass[resposta.text]}" style="color: ${styleClass[resposta.text]}"></i> ${resposta.text}`;
+        button.innerHTML = `<i class="${iconClass[resposta.text]}" style="color: ${colorClass[resposta.text]}"></i> ${resposta.text}`;
         button.classList.add("btn");
         botoesResposta.appendChild(button);
 
@@ -173,6 +200,9 @@ function resetarEstado(){
 //     proximoBotao.style.display = "block"; //aparece o botao de next
 // }
 
+let tentativasErradas = 0;
+
+
 function selectAnswer(e){
     const btnSelecionado = e.target;
     const correto = btnSelecionado.dataset.correct === "true";
@@ -191,7 +221,35 @@ function selectAnswer(e){
         }
         button.disabled = true;
     });
+
+    if (!correto) {
+        tentativasErradas++;
+    
+        if (tentativasErradas === 1) {
+            const confirmacao = alert("Resposta incorreta. Você tem só mais uma chance. Pressione OK para continuar.");
+            if (confirmacao) {
+                return; // Permite avançar para a próxima pergunta
+            }
+        } else if (tentativasErradas === 2) {
+            alert("Acabou suas chances. O quiz será reiniciado.");
+            resetarQuiz(); // Reinicia o quiz
+            return;
+        }
+    }
+    
+    
+    
     proximoBotao.style.display = "block"; //aparece o botao de next
+}
+
+
+
+function resetarQuiz() {
+    perguntaAtualIndex = 0;
+    pontuacao = 0;
+    tentativasErradas = 0;
+    proximoBotao.innerHTML = "Próximo";
+    mostrarPergunta();
 }
 
 
@@ -223,3 +281,4 @@ proximoBotao.addEventListener("click", ()=>{
 })
 
 iniciarQuiz();
+

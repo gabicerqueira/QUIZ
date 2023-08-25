@@ -206,6 +206,21 @@ h1{
 }
 
 .fa-solid{
-    padding-right: 5px;
+    padding-right: 7px;
 }
 
+.red{
+    background-color: #ff4141;
+}
+
+.blue{
+    background-color: #7d7dff;
+}
+
+.green{
+    background-color: #56ff56;
+}
+
+.yellow{
+    background-color: #ddda32;
+}

@@ -65,6 +65,18 @@ function iniciarQuiz(){
     mostrarPergunta();
 }
 
+// function iniciarQuiz(){
+//     perguntaAtualIndex = 0;
+//     pontuacao = 0;
+//     tentativasErradas = 0;
+//     proximoBotao.innerHTML = "Próximo";
+//     mostrarPergunta();
+
+//     const pontuacaoElement = document.getElementById("pontuacao");
+//     pontuacaoElement.textContent = "Pontuação: 0"; // Zerar a pontuação
+//     pontuacaoElement.style.display = "block"; // Exibir o elemento de pontuação
+// }
+
 const iconClass = {
     "Sócrates": "fa-solid fa-circle",
     "Descartes": "fa-solid fa-square",
@@ -180,6 +192,9 @@ function resetarEstado(){
     while(botoesResposta.firstChild){
         botoesResposta.removeChild(botoesResposta.firstChild);
     }
+    const pontuacaoElement = document.getElementById("pontuacao");
+    pontuacaoElement.style.display = "block";
+    pontuacaoElement.textContent = "Pontuação: 0";
 }
 
 // function selectAnswer(e){
@@ -244,13 +259,27 @@ function selectAnswer(e){
 
 
 
+// function resetarQuiz() {
+//     perguntaAtualIndex = 0;
+//     pontuacao = 0;
+//     tentativasErradas = 0;
+//     proximoBotao.innerHTML = "Próximo";
+//     mostrarPergunta();
+// }
+
 function resetarQuiz() {
     perguntaAtualIndex = 0;
     pontuacao = 0;
     tentativasErradas = 0;
     proximoBotao.innerHTML = "Próximo";
     mostrarPergunta();
+
+    const pontuacaoElement = document.getElementById("pontuacao");
+    pontuacaoElement.textContent = "Pontuação: 0"; // Zerar a pontuação
+    pontuacaoElement.style.display = "block"; // Exibir o elemento de pontuação
 }
+
+
 
 
 function mostrarPontuacao(){ //final

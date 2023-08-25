@@ -63,6 +63,12 @@ function iniciarQuiz(){
     pontuacao = 0;
     proximoBotao.innerHTML = "Próximo";
     mostrarPergunta();
+    const pontuacaoElement = document.getElementById("pontuacao");
+    // pontuacaoElement.textContent = "Pontuação: 0";
+    // pontuacaoElement.style.display = "block";
+    pontuacaoElement.innerHTML = `<i class="fa-solid fa-award" style="color: #000000;"></i> Pontuação: 0`; // Exibir o ícone e a pontuação inicial
+    pontuacaoElement.style.display = "block";
+
 }
 
 // function iniciarQuiz(){
@@ -223,7 +229,7 @@ function selectAnswer(e){
         pontuacao += 10;
 
         const pontuacaoElement = document.getElementById("pontuacao"); //pega o p 
-        pontuacaoElement.textContent = `Pontuação: ${pontuacao}`; //muda adicionando a cada resposta correta
+        pontuacaoElement.innerHTML = `<i class="fa-solid fa-award" style="color: #000000;"></i> Pontuação: ${pontuacao}`; // atualiza apenas o texto da pontuação
     } else {
         btnSelecionado.classList.add("incorreto"); //não adiciona a pontuação e fica vermelho
     }
@@ -249,10 +255,9 @@ function selectAnswer(e){
         }
     }
     
-    
-    
     proximoBotao.style.display = "block"; //aparece o botao de next
 }
+
 
 
 
@@ -272,8 +277,8 @@ function resetarQuiz() {
     mostrarPergunta();
 
     const pontuacaoElement = document.getElementById("pontuacao");
-    pontuacaoElement.textContent = "Pontuação: 0"; // Zerar a pontuação
-    pontuacaoElement.style.display = "block"; // Exibir o elemento de pontuação
+    pontuacaoElement.innerHTML = `<i class="fa-solid fa-award" style="color: #000000;"></i> Pontuação: 0`; // Exibir o ícone e a pontuação inicial
+    pontuacaoElement.style.display = "block";
 }
 
 

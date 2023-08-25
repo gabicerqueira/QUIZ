@@ -192,9 +192,6 @@ function resetarEstado(){
     while(botoesResposta.firstChild){
         botoesResposta.removeChild(botoesResposta.firstChild);
     }
-    const pontuacaoElement = document.getElementById("pontuacao");
-    pontuacaoElement.style.display = "block";
-    pontuacaoElement.textContent = "Pontuação: 0";
 }
 
 // function selectAnswer(e){
